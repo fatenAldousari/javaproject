@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -5,7 +6,6 @@ public class Main {
         BankSingleton bank = BankSingleton.getInstance();
         Scanner scanner = new Scanner(System.in);
 
-        // Example: Create a user and add to the bank system
         System.out.println("Welcome to the Bank!");
 
         System.out.print("Enter your username: ");
@@ -14,20 +14,19 @@ public class Main {
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
 
-        User user = User.createBankAccount(username, password, generateRandomAccountNumber());
+        User user = new User(username, password, generateRandomAccountNumber());
 
         if (user != null) {
 
             bank.addUser(user);
             System.out.println("User account created successfully.");
 
-            // Example: Authenticate user
             System.out.println("\nPlease sign in to your account:");
-            if (authenticateUser(bank, username, password, scanner)) {
-                // Display account details after successful authentication
+            // if ((bank, username, password, scanner))
+
+            if (user.equals(username) && password.equals(password)) {
                 bank.displayAccountDetails(username);
 
-                // Example: Perform operations
                 while (true) {
                     try {
                         System.out.println("\nChoose an option:");
@@ -62,9 +61,15 @@ public class Main {
                 System.out.println("Authentication failed. Incorrect username or password.");
             }
         }
+        authenticateUser();
+        scanner.close();
     }
 
-    private static boolean authenticateUser(BankSingleton bank, String username, String password, Scanner scanner) {
+    private static void authenticateUser() {
+    }
+
+    private static boolean authenticateUser(BankSingleton bank, String username,
+            String password, Scanner scanner) {
         System.out.print("Enter your username: ");
         String enteredUsername = scanner.nextLine();
 
@@ -75,7 +80,8 @@ public class Main {
     }
 
     private static int generateRandomAccountNumber() {
-        // Generate a random 6-digit account number for simplicity
+
         return (int) (Math.random() * 90) + 100;
     }
+
 }

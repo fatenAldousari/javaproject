@@ -38,7 +38,7 @@ public class BankSingleton {
 
     public boolean authenticaterUser(String username, String password) {
         for (User user : userAccount) {
-            if (user != null && user.getUserName().equals(username) && user.getPassword().equals(password)) {
+            if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
                 return true;
             }
         }
@@ -66,6 +66,6 @@ public class BankSingleton {
     }
 
     public boolean authenticateUser(String enteredUsername, String enteredPassword) {
-        return false;
+        return true;
     }
 }
