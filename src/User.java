@@ -5,10 +5,15 @@ public class User {
     String password;
     BankAccount account;
 
-    public User(String userName, String password) {
+    public User(String userName, String password, BankAccount account) {
         this.userName = userName;
         this.password = password;
-        this.account = null;
+        // this.account = new BankAccount(1234, 0.0, null);
+        this.account = account;
+    }
+
+    // BankAccount haya = new BankAccount(0, 0, null);
+    public User(String username2, String password2, int randomAccountNumber) {
     }
 
     public String getUserName() {
@@ -52,12 +57,12 @@ public class User {
         return true;
     }
 
-    private String generateAccountNumber() {
-        return "Account" + System.currentTimeMillis();
+    private User generateAccountNumber() {
+        return generateAccountNumber();
     }
 
-    public static User createBankAccount(String string, String string2, int i) {
-        return null;
-    }
+    // public static User createBankAccount(String string, String string2, int i) {
+    // return getAccount();
+    // }
 
 }
